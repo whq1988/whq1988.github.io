@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "搭建一个博客"
+title: "使用Jekyll搭建一个博客"
 date: 2018-04-04 15:55:45 +0800
-categories: 未分类
+categories: jekyll
 description: "2017年年终总结，开启2018年新希望！"
 tag: 搭建博客
 ---
