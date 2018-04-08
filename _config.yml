@@ -1,45 +1,76 @@
-# Welcome to Jekyll!
+# Basic
+title: 王海全的博客
+subtitle: 爱折腾 - 乐于折腾 - 享受折腾
+KeyWords: 王海全的博客 PHP开发实战 前端开发
+description: 微信：leialunwu 
+# 头像里面的标题
+avatarTitle: Nash
+# 头像里面的描述
+avatarDesc: PHP & Web
+url: "http://whq1988.github.io"
+
+# Comment
+comment:
+    disqus: wang-hai-quan-de-bo-ke
+    # duoshuo: xiaohange 
+    # yungentie: http://noneless.tk
+
+# Social
+social:
+    # weibo: hanjunqiang
+    github: whq1988
+    # twitter: 
+    mail: 245918140@qq.com
+
+# 百度统计 
+# 使用博客模板请去掉或者更换 id 
+# baidu:
+#     id: b2e5ebc1a7bd53eca8c179a4864b3723
+
+# Google Analytics
+# 使用博客模板请去掉或者更换 id
+#ga:
+#    id: UA-94074611-1  
+#    host: auto  
+
+
+# 《----------------- 上面的信息修改成你自己的 ---------------------------》
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
 #
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#  _post/ 下的文章更换成你自己的文章
+#  帮忙star一下，感谢~😆 地址： https://github.com/xiaohange/xiaohange.github.io
+#
+#
+# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
-
-# Build settings
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
 
 permalink: /:year/:month/:title/
+# Format
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+textColor: #FF0000
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: clear
+
+# The blog button should not be removed.
+blog_button:
+    title: 博客
+    description: 访问博客
+
+# Navigation buttons in the front page.s
+nav:
+    - {title: 所有文章, description: archive, url: '/archive'}
+    - {title: 标签, description: tags, url: '/tags'}
+    - {title: 关于我, description: about, url: '/about'}
+    
+
+# Pagination
+plugins: [jekyll-paginate,jekyll-sitemap]
+paginate: 20
+paginate_path: "page/:num/"
+
+
