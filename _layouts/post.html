@@ -1,24 +1,16 @@
 ---
 layout: default
 ---
+<div class="post">
 
-<article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <div class="post-meta">
-      <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="{{page.date | date: date_to_xmlschema}}" itemprop="datePublished" class="post-meta__date date">{{page.date | date: "%F"}}</time>  
-         
-      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
-    </p>
-    </div>
+    <h1>{{ page.title }}</h1>
   </header>
 
-  <section class="post">
-    {{ content }}
+  <p class="meta">{{ page.date | date: "%b %-d, %Y" }}</p>
 
-  </section>
-</article>
+  <article class="post-content">
+  {{ content }}
+  </article>
 
-{% include new-old.html %}
-{% include comments.html %}
+</div>

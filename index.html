@@ -1,35 +1,39 @@
 ---
 layout: default
+title: Home
 ---
 
+<div class="home">
 
-<div class="main-post-list hidden">
-
-  <ol class="post-list">
+  <ul class="posts">
     {% for post in paginator.posts %}
     <li>
-      <h2 class="post-list__post-title post-title"><a href="{{ post.url }}" title="访问 {{ post.title }}">{{ post.title }}</a></h2>
-      <p class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 250 }}&hellip;</p>
-      <div class="post-list__meta">        
-        <time datetime="{{post.date | date: date_to_xmlschema}}" class="post-list__meta--date date">
-          <img src="/images/calendar.png" width="20px" /> 
-          {{ post.date | date: "%F"}}</time> 
-        <div class = "tag-img-icon">
-          <img src="/images/tag-icon.svg" width="20px" /> 
-        </div>
-        <a href="/tags">
-          <div class = "post-list-icon-mate">
-            <span class="post-list__meta--tags-right">{{ post.tags }}</span>
-          </div>
-          <div class = "post-list-small-mate">
-          <a class="btn-border-small" href={{ post.url }}>阅读全文 » </a>
-          </div>
+      <h1 >{{ post.title }}</h1>
+      <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+      {{ post.excerpt }}
+      <div class="continue">
+        <a href="{{ post.url | prepend: site.baseurl }}">&bull;&bull;&bull;</a>
       </div>
-      <hr class="post-list__divider" />
     </li>
     {% endfor %}
-  </ol>
+  </ul>
 
-  {% include pagination.html %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      {% if page == 2 %}
+        <a class="page-link" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">prv</a>
+      {% else %}
+        <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">prv</a>
+      {% endif %}
+    {% else %}
+      <span class="page-link">prv</span>
+    {% endif %}
+
+    {% if paginator.next_page %}
+      <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">nxt</a>
+    {% else %}
+      <span class="page-link">nxt</span>
+    {% endif %}
+  </div>
 
 </div>

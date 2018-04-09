@@ -1,76 +1,24 @@
-# Basic
-title: 王海全的博客
-subtitle: On the Way
-KeyWords: 王海全的博客 PHP开发实战 前端开发
-description: 微信：leialunwu 
-# 头像里面的标题
-avatarTitle: Nash
-# 头像里面的描述
-avatarDesc: PHP & Web
-url: "http://whq1988.github.io"
+# Site settings
+title: "王海全的博客"
+description: "On the Way..."
+baseurl: ""
+url: "http://blog.wanghaiquan.cn"
 
-# Comment
-comment:
-    disqus: wang-hai-quan-de-bo-ke
-    # duoshuo: xiaohange 
-    # yungentie: http://noneless.tk
+plugins: [jekyll-paginate]
 
-# Social
-social:
-    # weibo: hanjunqiang
-    github: whq1988
-    # twitter: 
-    mail: 245918140@qq.com
-
-# 百度统计 
-# 使用博客模板请去掉或者更换 id 
-# baidu:
-#     id: b2e5ebc1a7bd53eca8c179a4864b3723
-
-# Google Analytics
-# 使用博客模板请去掉或者更换 id
-#ga:
-#    id: UA-94074611-1  
-#    host: auto  
-
-
-# 《----------------- 上面的信息修改成你自己的 ---------------------------》
-#
-#
-#  _post/ 下的文章更换成你自己的文章
-#  帮忙star一下，感谢~😆 地址： https://github.com/xiaohange/xiaohange.github.io
-#
-#
-# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
-
-
-permalink: /:year/:month/:title/
-# Format
-highlighter: rouge
+# Build settings
 markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-textColor: #FF0000
+permalink: pretty
+highlighter: rouge
+paginate: 10
 
-# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: clear
-
-# The blog button should not be removed.
-blog_button:
-    title: 博客
-    description: 访问博客
-
-# Navigation buttons in the front page.s
-nav:
-    - {title: 所有文章, description: archive, url: '/archive'}
-    - {title: 标签, description: tags, url: '/tags'}
-    - {title: 关于我, description: about, url: '/about'}
-    
-
-# Pagination
-plugins: [jekyll-paginate,jekyll-sitemap]
-paginate: 20
-paginate_path: "page/:num/"
-
-
+# Links
+links:
+  - title: "abt"
+    url: /about
+  - title: "twt"
+    url: http://twitter.com/alixedi
+  - title: "git"
+    url: http://github.com/alixedi
+  - title: "rss"
+    url: /feed.xml

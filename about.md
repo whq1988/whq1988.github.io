@@ -1,32 +1,11 @@
 ---
 layout: page
-title: 关于我 
+title: About
+permalink: /about/
 ---
-<p>
-<p>
-<p>
-<p>
-一个 PHP 开发者，喜欢研究一些新技术
-<p>
-目前就职于Comper
-<p>
 
-<h3> 我的博客 </h3>  
-<p>
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
 
-<p> 
+You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
 
-<h3> 我的微博 </h3>
-<p>
-
-<p>
-
-<h3> 微信公众号 </h3>
-<p>
-
-<p>
-
-{% include comments.html %}
-
-
-
+You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
