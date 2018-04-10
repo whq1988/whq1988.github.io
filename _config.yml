@@ -14,11 +14,11 @@ paginate: 10
 
 # Links
 links:
-  - title: "abt"
+  - title: "所有文章"
+    url: /index
+  - title: "标签"
+    url: /tags
+  - title: "关于我"
     url: /about
-  - title: "twt"
-    url: http://twitter.com/alixedi
-  - title: "git"
-    url: http://github.com/alixedi
-  - title: "rss"
+  - title: "订阅"
     url: /feed.xml
