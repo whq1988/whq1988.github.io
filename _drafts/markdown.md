@@ -61,3 +61,12 @@ Use the `printf()` function.
     }
     o.b.fn();
 {% endhighlight %}
+
+{% highlight php %}
+    //载入核心文件
+    require(SITE_PATH.'/core/core.php');
+
+    //实例化一个网站应用实例
+    $App = new App();
+    $App->run();
+{% endhighlight %}

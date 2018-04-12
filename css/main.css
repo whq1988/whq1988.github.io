@@ -67,9 +67,15 @@ a.page-link:hover {
 
 /* headings */
 h1 {
+  font-size: 1.5em;
+}
+h2 {
   font-size: 1.2em;
 }
-h2, h3, h4, h5, h6 {
+h3 {
+  font-size: 1.1em;
+}
+h4, h5, h6 {
   font-size: 1em;
 }
 
@@ -81,7 +87,7 @@ h1 {
 
 h2 {
   font-weight: bold;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 
 h3 {
@@ -94,7 +100,7 @@ h3 {
 }
 
 .header > h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   letter-spacing: 10px;
   margin-bottom: 10px;
   text-decoration: none;
