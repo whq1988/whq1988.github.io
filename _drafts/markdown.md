@@ -49,7 +49,7 @@ __double underscores__
 Use the `printf()` function.
 
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
     var o = {
         a:10,
         b:{
