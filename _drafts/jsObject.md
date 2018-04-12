@@ -99,7 +99,54 @@ tag: js
 {% endhighlight %}
 
 <br>
-### 四、js对象合并
+### 二、js对象引用与拷贝
+* **对象引用：除了基本类型跟null，对象（或数组）之间的赋值，只是将地址指向同一个，而不是真正意义上的拷贝**
+{% highlight javascript linenos %}
+    // 数组
+    var a = [1,2,3];
+    var b = a;
+    b.push(4); // b中添加了一个4
+    alert(a); // a变成了[1,2,3,4] 
+    // 对象
+    var obj = {a:10};
+    var obj2 = obj;
+    obj2.a = 20; // obj2.a改变了，
+    alert(obj.a); // 20，obj的a跟着改变  
+{% endhighlight %}
+* **浅拷贝：要实现真正意义上的拷贝，我们需要封装一个函数，来对对象进行拷贝，通过for in 循环获取基本类型，赋值每一个基本类型**
+{% highlight javascript linenos %}
+    var obj = {a:10};
+    function copy(obj){
+        var newobj = {};
+        for ( var attr in obj) {
+            newobj[attr] = obj[attr];
+        }
+        return newobj;
+    }
+    var obj2 = copy(obj);
+    obj2.a = 20;
+    alert(obj.a); //10  
+{% endhighlight %}
+* **深拷贝：浅拷贝存在隐患，如果obj中，a的值不是10，而是一个对象，这样就会导致在for in中，将a这个对象的引用赋值为新对象，导致存在对象引用的问题，因此我们需要通过递归，来拷贝深层的对象。将copy改造成递归即可。**
+{% highlight javascript linenos %}
+    var obj = {a:{b:10}};
+    function deepCopy(obj){
+        if(typeof obj != 'object'){
+            return obj;
+        }
+        var newobj = {};
+        for ( var attr in obj) {
+            newobj[attr] = deepCopy(obj[attr]);
+        }
+        return newobj;
+    }
+    var obj2 = deepCopy(obj);
+    obj2.a.b = 20;
+    alert(obj.a.b); //10  
+{% endhighlight %}
+
+<br>
+### 三、js对象合并
 需求：设有对象 o1、o2、o3,需要得到对象 o4，如下：
 {% highlight javascript linenos %}
     var o1 = { a:'a' }, o2 = { b:'b' }, o3 = { c:'c' }, , o4 = {};
@@ -133,4 +180,23 @@ tag: js
     console.log(o2);  // {b: "b"}
     console.log(o3);  // {c: "c"}
 {% endhighlight %}
-* **方法3**：使用JQuery的extend方法
+* **方法3**：使用JQuery的extend方法，将一个或多个对象的内容合并到目标对象
+用法：jQuery.extend([deep], target, object1, [objectN])
+
+| 参数    | 说明 | 
+| -       | :-: | 
+| deep    | 可选。 Boolean类型 指示是否深度合并对象，默认为false。如果该值为true，且多个对象的某个同名属性也都是对象，则该"属性对象"的属性也将进行合并。|
+| target  | Object类型 目标对象，其他对象的成员属性将被附加到该对象上。 |
+| object1 | 可选。 Object类型 第一个被合并的对象。 |
+| objectN | 可选。 Object类型 第N个被合并的对象。 |
+
+注意：
+* 如果只为$.extend()指定了一个参数，则意味着参数target被省略。此时，target就是jQuery对象本身。通过这种方式，我们可以为全局对象jQuery添加新的函数。
+* 如果多个对象具有相同的属性，则后者会覆盖前者的属性值。
+{% highlight javascript linenos %}
+    var o1 = { a:'a' }, o2 = { b:'b' }, o3 = {};
+    o3 = $.extend(o1, o2)  // 合并 o1 和 o2， 将结果返回给 o3. 注意： 此时，o1 == o3! 即 o1 被修改
+    // 或
+    o3 = $.extend({}, o1, o2) // 合并 o1 和 o2， 将结果返回给 o3. 注意： 此时，o1 ！= o3! 即 o1 没有被修改
+{% endhighlight %}
+
