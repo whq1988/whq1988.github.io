@@ -10,7 +10,7 @@ plugins: [jekyll-paginate]
 markdown: kramdown
 permalink: pretty
 highlighter: rouge
-paginate: 10
+paginate: 5
 
 # Links
 links:
