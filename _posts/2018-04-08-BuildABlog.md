@@ -35,7 +35,7 @@ Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个�
 3. 绑定成功后，可直接访问自己的域名，或者输入{yourname}.github.io会自动跳转到自己的域名  
 
 <br>
-### 5.更换模板
+### 5.更换模板，下载模板后进行替换
 [Jekyll主题列表](http://jekyllthemes.org/)  
 
 <br>
@@ -53,3 +53,6 @@ Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个�
     </style>
 {% endhighlight %}
 
+### 7.本地创建博客
+1. 使用 jekyll serve --watch --drafts
+2. 在浏览器中 http://localhost:4000/ 预览
