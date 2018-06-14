@@ -4,7 +4,7 @@ title: "二进制、八进制、十进制与十六进制的概念以及它们之
 date: 2018-06-14 13:49:00 +0800
 categories: other
 description: "二进制、八进制、十进制与十六进制的概念以及它们之间的转换"
-tag: Binary
+tag: other
 ---
 
 ### 概述
@@ -62,6 +62,9 @@ tag: Binary
 
 **十六进制转八进制：**将十六进制转换为二进制，然后再将二进制转换为八进制，小数点位置不变。  
 <div align="center"><img src="{{ "/images/otherBinary/92525546_13.jpg" | prepend: site.baseurl }}" width="300" /></div>
+  
+  
+*转自：[二进制、八进制、十进制与十六进制的概念以及它们之间的转换](http://www.360doc.com/content/17/0227/22/8067272_632545159.shtml)*
 
 
 
