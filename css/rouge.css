@@ -185,8 +185,3 @@
 .highlight .o {
   color: #f92672;
 }
-
-/*自己添加*/
-.highlight pre {
-  overflow: auto;
-}

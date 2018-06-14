@@ -42,12 +42,13 @@ Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个�
 ### 6.代码高亮（使用rouge）
 1. 修改 _config.yml 文件，修改其中的 highlighter为rouge  
 2. 生成 rouge.css 文件（命令：rougify style monokai.sublime > rouge.css）,放到相应位置，然后在头部加载进来  
-3. 默认的 rouge 主题偏向于白色，所以设置了背景为黑色效果会更好。代码如下：
+3. 默认的 rouge 主题偏向于白色，所以设置了背景为黑色效果会更好。同时为了避免代码过长时把代码块撑开，加入了横向滚动条。代码如下：
 {% highlight css linenos %}
     <link rel="stylesheet" href="{{ "/css/rouge.css" | prepend: site.baseurl }}">
     <style>
         pre{
             background: rgba(0, 0, 0, 0.95);
+            overflow: hidden;
         }
     </style>
 {% endhighlight %}
