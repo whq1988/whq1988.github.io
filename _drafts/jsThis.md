@@ -133,8 +133,3 @@ tag: js
 {% endhighlight %}
 
 
-## kramdown和markdown较大的差异比较
-
-kramdown是markdown的超集,在Jekyll中支持, 可以用于Github搭建博客. 和Jekyll一样, 使用Ruby作为核心语言. 由于Maruku不再更新, Github推荐使用kramdown作为markdown解析. kramdown作为markdown解析器号称速度快, 比PHP markdown和Maruku都要快几倍.
-
-kramdown有很多一般markdown所没有的语法特点, 包括和GFM也有差异.另外也可以很方便地作为文件转换使用. 这里只讨论其markdown重要特色, 不考察其作为解析器的用法.
