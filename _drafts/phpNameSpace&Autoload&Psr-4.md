@@ -219,7 +219,100 @@ PSR-4 是关于由文件路径自动载入对应类的相关规范，规范规�
 
 **PSR-4 规范中必须要有一个顶级命名空间，它的意义在于表示某一个特殊的目录（文件基目录）。子命名空间代表的是类文件相对于文件基目录的这一段路径（相对路径），类名则与文件名保持一致（注意大小写的区别）。**
 
+举个例子：在全限定类名 \app\view\news\Index 中，如果 app 代表 C:\Baidu，那么这个类的路径则是 C:\Baidu\view\news\Index.php，我们就以解析 \app\view\news\Index 为例，编写一个简单的 Demo：
 
+{% highlight php linenos %}
+	$class = 'app\view\news\Index';
+
+	/* 顶级命名空间路径映射 */
+	$vendor_map = array(
+	    'app' => 'C:\Baidu',
+	);
+
+	/* 解析类名为文件路径 */
+	$vendor = substr($class, 0, strpos($class, '\\')); // 取出顶级命名空间[app]
+	$vendor_dir = $vendor_map[$vendor]; // 文件基目录[C:\Baidu]
+	$rel_path = dirname(substr($class, strlen($vendor))); // 相对路径[/view/news]
+	$file_name = basename($class) . '.php'; // 文件名[Index.php]
+
+	/* 输出文件所在路径 */
+	echo $vendor_dir . $rel_path . DIRECTORY_SEPARATOR . $file_name;
+{% endhighlight %}
+
+通过这个 Demo 可以看出限定类名转换为路径的过程。那么现在就让我们用规范的面向对象方式去实现自动加载器吧。
+
+首先我们创建一个文件 Index.php，它处于 \app\mvc\view\home 目录中：
+
+{% highlight php linenos %}
+	namespace app\mvc\view\home;
+
+	class Index
+	{
+	    function __construct()
+	    {
+	        echo '<h1> Welcome To Home </h1>';
+	    }
+	}
+{% endhighlight %}
+
+接着我们在创建一个加载类（不需要命名空间），它处于 \ 目录中：
+
+{% highlight php linenos %}
+	class Loader
+	{
+	    /* 路径映射 */
+	    public static $vendorMap = array(
+	        'app' => __DIR__ . DIRECTORY_SEPARATOR . 'app',
+	    );
+
+	    /**
+	     * 自动加载器
+	     */
+	    public static function autoload($class)
+	    {
+	        $file = self::findFile($class);
+	        if (file_exists($file)) {
+	            self::includeFile($file);
+	        }
+	    }
+
+	    /**
+	     * 解析文件路径
+	     */
+	    private static function findFile($class)
+	    {
+	        $vendor = substr($class, 0, strpos($class, '\\')); // 顶级命名空间
+	        $vendorDir = self::$vendorMap[$vendor]; // 文件基目录
+	        $filePath = substr($class, strlen($vendor)) . '.php'; // 文件相对路径
+	        return strtr($vendorDir . $filePath, '\\', DIRECTORY_SEPARATOR); // 文件标准路径
+	    }
+
+	    /**
+	     * 引入文件
+	     */
+	    private static function includeFile($file)
+	    {
+	        if (is_file($file)) {
+	            include $file;
+	        }
+	    }
+	}
+{% endhighlight %}
+
+最后，将 Loader 类中的 autoload 注册到 spl_autoload_register 函数中：
+
+{% highlight php linenos %}
+	include 'Loader.php'; // 引入加载器
+	spl_autoload_register('Loader::autoload'); // 注册自动加载
+
+	new \app\mvc\view\home\Index(); // 实例化未引用的类
+
+	/**
+	 * 输出: <h1> Welcome To Home </h1>
+	 */
+{% endhighlight %}
+
+示例中的代码其实就是 ThinkPHP 自动加载器源码的精简版，它是 ThinkPHP 5 能实现惰性加载的关键。
 
 <br><br>
 转自:[《PHP 命名空间与自动加载机制介绍》](https://www.cnblogs.com/woider/p/6443854.html)
