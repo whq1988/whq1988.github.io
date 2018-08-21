@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Nginx配置(全局 && event模块 && http模块)"
+title: "Nginx配置1(全局 && event区块 && http区块)"
 date: 2018-08-17 13:14:00 +0800
 categories: nginx
-description: "Nginx配置(全局 && event模块 && http模块)"
+description: "Nginx配置1(全局 && event区块 && http区块)"
 tag: nginx
 ---
 
