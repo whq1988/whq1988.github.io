@@ -30,7 +30,7 @@ tag: yii
 可以看出其目录结构基本上同backend没有其他差异，因为我们就是拷贝backend项目，只是做了部分优化。此时再做两个修改：
 
 * 1.把config/main.php中的backend全部替换为api
-* 2.修改common\config\bootstrap.php文件，对新建的应用增加alias别名：Yii::setAlias('@api', dirname(dirname(__DIR__)) . '/api');
+* 2.修改common\config\bootstrap.php文件，对新建的应用增加alias别名：Yii::setAlias('@api', dirname(dirname(\_\_DIR\_\_)) . '/api');
 
 
 ### 2.为新建的api应用程序美化路由
