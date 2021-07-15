@@ -2,9 +2,9 @@
 layout: post
 title: "使用Jekyll和GitHub Page搭建博客"
 date: 2018-04-08 17:39:45 +0800
-categories: jekyll
+categories: blog
 description: "使用Jekyll和GitHub Page搭建博客"
-tag: 搭建博客
+tag: 博客使用教程
 ---
 
 ### 概述
